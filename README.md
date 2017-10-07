@@ -138,7 +138,7 @@ A new PostgreSQL database user can be created by specifying the `DB_USER` and `D
 
 ```bash
 docker run --name postgresql -itd --restart always \
-  --env 'DB_USER=dbuser' --env 'DB_PASS=dbuserpass' \
+  --env 'DB_USER=dbuser1' --env 'DB_PASS=dbuserpass1' \
   sameersbn/postgresql:9.6-2
 ```
 
@@ -147,7 +147,16 @@ docker run --name postgresql -itd --restart always \
 > - The created user can login remotely
 > - The container will error out if a password is not specified for the user
 > - No changes will be made if the user already exists
-> - Only a single user can be created at each launch
+
+Additionally, more than one user can be created by specifying a comma separated list of user names in `DB_USER`. For example, the following command creates two new user named `dbuser1` and `dbuser2`.
+
+```bash
+docker run --name postgresql -itd --restart always \
+  --env 'DB_USER=dbuser1,dbuser2' --env 'DB_PASS=dbuserpass1,dbuserpass2' \
+  sameersbn/postgresql:9.6-2
+```
+
+> Note that the password and user name are matched in order. Example dbuser1 password is dbuserpass1.
 
 ## Creating databases
 
@@ -177,12 +186,19 @@ If the `DB_USER` and `DB_PASS` variables are specified along with the `DB_NAME` 
 
 ```bash
 docker run --name postgresql -itd --restart always \
-  --env 'DB_USER=dbuser' --env 'DB_PASS=dbuserpass' \
-  --env 'DB_NAME=dbname1,dbname2' \
+  --env 'DB_USER=dbuser1' --env 'DB_PASS=dbuserpass1' \
+  --env 'DB_NAME=dbname1' \
   sameersbn/postgresql:9.6-2
 ```
 
-In the above example `dbuser` with be granted access to both the `dbname1` and `dbname2` databases.
+Following command example `dbuser1` with be granted access to `dbname1` and `dbuser2` with be granted access to`dbname2` databases.
+
+```bash
+docker run --name postgresql -itd --restart always \
+  --env 'DB_USER=dbuser1,dbuser2' --env 'DB_PASS=dbuserpass1,dbuserpass2' \
+  --env 'DB_NAME=dbname1,dbname2' \
+  sameersbn/postgresql:9.6-2
+```
 
 # Enabling extensions
 
