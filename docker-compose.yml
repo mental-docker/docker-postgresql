@@ -10,13 +10,5 @@ PostgreSQL:
     - DB_USER=
     - DB_PASS=
     - DB_NAME=
-    - DB_TEMPLATE=
-
-    - DB_EXTENSION=
-
-    - REPLICATION_MODE=
-    - REPLICATION_USER=
-    - REPLICATION_PASS=
-    - REPLICATION_SSLMODE=
   volumes:
     - /srv/docker/postgresql:/var/lib/postgresql

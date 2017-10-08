@@ -88,6 +88,8 @@ docker exec -it postgresql sudo -u postgres psql
 
 *Alternatively, you can use the sample [docker-compose.yml](docker-compose.yml) file to start the container using [Docker Compose](https://docs.docker.com/compose/)*
 
+*You can use the template [docker-compose-teamplate.yml](docker-compose-template.yml) file to create a new docker compose file*
+
 ## Persistence
 
 For PostgreSQL to preserve its state across container shutdown and startup you should mount a volume at `/var/lib/postgresql`.
