@@ -94,7 +94,7 @@ docker exec -it postgresql sudo -u postgres psql
 
 For PostgreSQL to preserve its state across container shutdown and startup you should mount a volume at `/var/lib/postgresql`.
 
-> *The [Quickstart](#quickstart) command already mounts a volume for persistence.*
+> *The [Quickstart](#quickstart) command already mounts a volume for persistence. postgre-data is named volume. *
 
 SELinux users should update the security context of the host mountpoint so that it plays nicely with Docker:
 
