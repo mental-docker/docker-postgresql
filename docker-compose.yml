@@ -14,5 +14,7 @@ services:
       - DB_NAME=
     volumes:
       - postgre-data:/var/lib/postgresql
+      - postgre-run-data:/run/postgresql
 volumes:
   postgre-data:
+  postgre-run-data:
