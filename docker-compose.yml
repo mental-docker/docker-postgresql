@@ -1,10 +1,11 @@
 PostgreSQL:
   restart: always
-  image: sameersbn/postgresql:9.6-2
+  image: mental/postgresql:9.6-2
   ports:
     - "5432:5432"
   environment:
     - DEBUG=false
+    - PG_PASSWORD=
 
     - DB_USER=
     - DB_PASS=
