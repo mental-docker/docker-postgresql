@@ -1,4 +1,4 @@
-version: '3'
+version: '3.3'
 services:
   postgresql:
     restart: always
@@ -7,11 +7,11 @@ services:
       - "5432:5432"
     environment:
       - DEBUG=false
-      - PG_PASSWORD=
+      - PG_PASSWORD=pgpassword
 
-      - DB_USER=
-      - DB_PASS=
-      - DB_NAME=
+      - DB_USER=user1,user2
+      - DB_PASS=pass1,pass2
+      - DB_NAME=db1,db2
     volumes:
       - postgre-data:/var/lib/postgresql
       - postgre-run-data:/run/postgresql
