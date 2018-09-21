@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-source ${PG_APP_HOME}/functions
+source ${PG_APP_HOME}/functions.sh
 
 [[ ${DEBUG} == true ]] && set -x
 

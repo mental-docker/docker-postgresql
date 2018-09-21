@@ -352,8 +352,11 @@ create_database() {
           if [[ -n ${DB_USER} ]]; then
             echo "‣ Granting access to ${USERLIST[${userindex}]} user..."
             psql -U ${PG_USER} -c "GRANT ALL PRIVILEGES ON DATABASE \"${database}\" to \"${USERLIST[${userindex}]}\";" >/dev/null
+            echo "executed -> GRANT ALL PRIVILEGES ON DATABASE \"${database}\" to \"${USERLIST[${userindex}]}\";"
           fi
-          ((userindex+=1))
+		  if [[ -n ${USERLIST[${userindex+1}]} ]]; then
+            ((userindex+=1))
+          fi
         done
         ;;
     esac
