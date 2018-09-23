@@ -83,7 +83,17 @@ docker run --name postgresql -itd --restart always \
 Login to the PostgreSQL server using:
 
 ```bash
-docker exec -it postgresql sudo -u postgres psql
+docker exec -it cont_postgresql sudo -u postgres psql
+docker exec -it cont_postgresql sudo -u postgres psql hn_infra
+
+
+For exit bash ->  \q 
+
+Example for bash
+
+select upper('coşkun');
+select lower('III');
+
 ```
 
 *Alternatively, you can use the sample [docker-compose.yml](docker-compose.yml) file to start the container using [Docker Compose](https://docs.docker.com/compose/)*

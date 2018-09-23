@@ -212,7 +212,7 @@ initialize_database() {
         fi
 
         exec_as_postgres ${PG_BINDIR}/initdb --pgdata=${PG_DATADIR} \
-          --username=${PG_USER} --encoding=unicode --auth=trust ${PG_PASSWORD:+--pwfile=/tmp/pwfile} >/dev/null
+          --username=${PG_USER} --encoding=utf-8 --auth=trust ${PG_PASSWORD:+--pwfile=/tmp/pwfile} >/dev/null
 
         if [[ -n ${PG_OLD_VERSION} ]]; then
           PG_OLD_BINDIR=/usr/lib/postgresql/${PG_OLD_VERSION}/bin
